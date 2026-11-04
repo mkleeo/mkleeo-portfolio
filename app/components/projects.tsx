@@ -5,115 +5,117 @@ import { projects, type Project } from "../data/projects";
 
 type View = "recruiter" | "freelance" | "complete";
 
-function ProjectVisual({ project }: { project: Project }) {
-  if (project.kind !== "finance") {
+function Preview({ project }: { project: Project }) {
+  if (project.id === 2) {
     return (
-      <div className="relative flex h-full min-h-40 items-center justify-center overflow-hidden bg-[#151a1b]">
-        <div className="absolute -right-14 -top-16 h-56 w-56 rounded-full border border-[#a2e8db]/15" />
-        <div className="absolute -left-10 bottom-0 h-40 w-40 rounded-full border border-white/10" />
-        <span className="font-mono text-[clamp(4rem,12vw,9rem)] font-semibold tracking-tighter text-white/[0.055]">{String(project.id).padStart(2, "0")}</span>
-        <span className="absolute bottom-5 left-5 font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500">Espaço reservado</span>
+      <div className="overflow-hidden border-b border-white/10 bg-[#101618] p-4 sm:p-6" aria-label="Ilustração conceitual de uma plataforma de vídeos, não uma captura real">
+        <div className="mx-auto max-w-xl rounded-lg border border-white/10 bg-[#0b1012] p-3 shadow-xl sm:p-4">
+          <div className="flex items-center justify-between gap-2 border-b border-white/10 pb-3">
+            <div className="flex items-center gap-2"><span className="flex h-7 w-7 items-center justify-center rounded bg-[#a2e8db]/15 text-[#a2e8db]">▶</span><span className="text-xs font-semibold text-white">Alura Play</span></div>
+            <div className="w-28 rounded border border-white/10 bg-white/5 px-2 py-1 text-[10px] text-zinc-500 sm:w-44">Buscar vídeos…</div>
+          </div>
+          <div className="mt-3 grid grid-cols-3 gap-2">
+            {[{name:"React na prática",tone:"from-cyan-900 to-slate-800",symbol:"⚛"},{name:"JavaScript",tone:"from-amber-900 to-stone-800",symbol:"JS"},{name:"Componentes",tone:"from-violet-900 to-slate-800",symbol:"</>"}].map(video => (
+              <div key={video.name} className="min-w-0"><div className={`flex aspect-video items-center justify-center rounded bg-gradient-to-br ${video.tone}`}><span className="text-lg font-semibold text-white/80">{video.symbol}</span></div><p className="mt-2 truncate text-[10px] font-medium text-zinc-300">{video.name}</p><p className="mt-1 text-[9px] text-zinc-600">Conteúdo em vídeo</p></div>
+            ))}
+          </div>
+        </div><p className="mt-3 text-right text-[10px] text-zinc-500">Representação conceitual · não é captura real</p>
       </div>
     );
   }
-
+  if (project.id === 3) {
+    return (
+      <div className="overflow-hidden border-b border-white/10 bg-[#151713] p-4 sm:p-6" aria-label="Ilustração conceitual de uma loja com carrinho, não uma captura real">
+        <div className="mx-auto max-w-xl rounded-lg border border-white/10 bg-[#0f1210] p-3 shadow-xl sm:p-4">
+          <div className="mb-3 flex items-center justify-between"><span className="text-xs font-semibold text-zinc-100">Shopping Cart</span><span className="rounded-full border border-[#a2e8db]/30 px-2 py-1 text-[10px] text-[#a2e8db]">Carrinho · 2</span></div>
+          <div className="grid grid-cols-[minmax(0,1fr)_minmax(100px,0.7fr)] gap-2 sm:gap-3">
+            <div className="grid grid-cols-2 gap-2">{[{n:"Produto A",v:"R$ 89",icon:"◈"},{n:"Produto B",v:"R$ 120",icon:"◇"}].map(item=><div key={item.n} className="min-w-0 rounded border border-white/10 bg-white/[0.03] p-2"><div className="flex aspect-[4/3] items-center justify-center rounded bg-[#25332c] text-2xl text-[#a2e8db]">{item.icon}</div><p className="mt-2 truncate text-[10px] text-zinc-200">{item.n}</p><p className="text-[10px] text-zinc-500">{item.v}</p></div>)}</div>
+            <div className="rounded border border-white/10 p-2 sm:p-3"><p className="text-[10px] font-semibold text-zinc-200">Resumo</p><div className="mt-3 flex justify-between gap-1 text-[9px] text-zinc-500"><span>2 itens</span><span>R$ 209</span></div><div className="my-2 border-t border-white/10"/><div className="flex justify-between gap-1 text-[10px] font-semibold text-zinc-100"><span>Total</span><span>R$ 209</span></div><div className="mt-3 rounded bg-[#a2e8db] px-1 py-2 text-center text-[9px] font-semibold text-[#101819]">Finalizar</div></div>
+          </div>
+        </div><p className="mt-3 text-right text-[10px] text-zinc-500">Valores fictícios · representação conceitual</p>
+      </div>
+    );
+  }
+  if (project.id === 4) {
+    return (
+      <div className="overflow-hidden border-b border-white/10 bg-[#12141b] p-4 sm:p-6" aria-label="Ilustração conceitual de consultas GraphQL, não uma captura real">
+        <div className="mx-auto max-w-xl overflow-hidden rounded-lg border border-white/10 bg-[#0c0f15] shadow-xl">
+          <div className="flex items-center justify-between border-b border-white/10 px-3 py-2 text-[10px] text-zinc-400"><span>GraphQL Playground</span><span className="text-[#a2e8db]">● Consulta</span></div>
+          <div className="grid grid-cols-2 divide-x divide-white/10 font-mono text-[9px] leading-5 sm:text-xs"><div className="min-w-0 p-3 text-zinc-300"><p className="text-pink-300">query <span className="text-zinc-200">GetItems</span> {'{'}</p><p className="pl-2 text-[#a2e8db]">items {'{'}</p><p className="pl-4">id</p><p className="pl-4">name</p><p className="pl-2 text-[#a2e8db]">{'}'}</p><p>{'}'}</p></div><div className="min-w-0 p-3 text-zinc-400"><p>{'{'}</p><p className="pl-2">"data": {'{'}</p><p className="pl-3">"items": [</p><p className="pl-4 text-[#a2e8db]">{'{'} "id": 1,</p><p className="pl-4 text-[#a2e8db]">"name": "Item" {'}'}</p><p className="pl-3">]</p><p className="pl-2">{'}'}</p><p>{'}'}</p></div></div>
+        </div><p className="mt-3 text-right text-[10px] text-zinc-500">Exemplo fictício de consulta · representação conceitual</p>
+      </div>
+    );
+  }
+  if (project.id === 5) {
+    return (
+      <div className="overflow-hidden border-b border-white/10 bg-[#14181a] p-4 sm:p-6" aria-label="Ilustração conceitual de API REST, não uma captura real">
+        <div className="mx-auto max-w-xl overflow-hidden rounded-lg border border-white/10 bg-[#0c1113] shadow-xl">
+          <div className="flex items-center justify-between border-b border-white/10 px-3 py-3"><span className="text-xs font-semibold text-zinc-200">REST API</span><span className="rounded bg-[#a2e8db]/10 px-2 py-1 font-mono text-[10px] text-[#a2e8db]">Spring Boot</span></div>
+          <div className="space-y-2 p-3 font-mono text-[10px] sm:p-4 sm:text-xs">{[{method:"GET",path:"/api/items",tone:"text-[#a2e8db]"},{method:"POST",path:"/api/items",tone:"text-amber-300"},{method:"GET",path:"/api/items/{id}",tone:"text-[#a2e8db]"}].map(route=><div key={route.method+route.path} className="flex items-center gap-3 rounded border border-white/10 bg-white/[0.03] px-3 py-2"><span className={`w-10 shrink-0 font-bold ${route.tone}`}>{route.method}</span><span className="min-w-0 truncate text-zinc-300">{route.path}</span><span className="ml-auto text-zinc-600">↗</span></div>)}</div>
+        </div><p className="mt-3 text-right text-[10px] text-zinc-500">Endpoints ilustrativos · não representam rotas verificadas</p>
+      </div>
+    );
+  }
   return (
-    <div className="relative flex h-full min-h-52 items-center justify-center overflow-hidden bg-[#11191a] px-5 py-8 sm:px-8" aria-label="Representação ilustrativa de um dashboard financeiro">
-      <div className="absolute -right-20 -top-24 h-64 w-64 rounded-full bg-[#a2e8db]/[0.07] blur-3xl" />
-      <div className="relative w-full max-w-lg overflow-hidden rounded-xl border border-white/10 bg-[#0d1113] shadow-[0_24px_80px_rgba(0,0,0,0.35)]">
-        <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
-          <span className="text-[10px] font-semibold tracking-[0.12em] text-zinc-300">FINANCE / OVERVIEW</span>
-          <span className="rounded bg-[#a2e8db]/10 px-2 py-1 text-[9px] text-[#a2e8db]">Prévia ilustrativa</span>
+    <div className="relative overflow-hidden border-b border-white/10 bg-[#11191a] p-5 sm:p-7" aria-label="Prévia ilustrativa da Finance Platform com dados fictícios">
+      <div className="mx-auto max-w-xl rounded-lg border border-white/10 bg-[#0d1113] p-4 shadow-2xl">
+        <div className="mb-4 flex items-center justify-between text-[10px] font-medium uppercase tracking-widest text-zinc-400">
+          <span>Finance / Overview</span><span className="text-[#a2e8db]">Prévia ilustrativa</span>
         </div>
-        <div className="grid grid-cols-3 gap-2 p-3 sm:gap-3 sm:p-4">
-          {[
-            { label: "Entradas", value: "R$ 8.450", color: "text-[#a2e8db]" },
-            { label: "Saídas", value: "R$ 3.120", color: "text-zinc-200" },
-            { label: "Saldo", value: "R$ 5.330", color: "text-zinc-200" },
-          ].map((item) => (
-            <div key={item.label} className="min-w-0 rounded-md border border-white/10 bg-white/[0.025] p-2 sm:p-3">
-              <p className="text-[9px] text-zinc-500">{item.label}</p>
-              <p className={`mt-2 truncate text-xs font-semibold sm:text-base ${item.color}`}>{item.value}</p>
+        <div className="grid grid-cols-3 gap-2">
+          {[["Entradas", "R$ 8.450"], ["Saídas", "R$ 3.120"], ["Saldo", "R$ 5.330"]].map(([label, value]) => (
+            <div key={label} className="min-w-0 rounded border border-white/10 bg-white/[0.03] p-2 sm:p-3">
+              <p className="text-[10px] text-zinc-500">{label}</p><p className="mt-2 truncate text-xs font-semibold text-zinc-100 sm:text-base">{value}</p>
             </div>
           ))}
-          <div className="col-span-3 rounded-md border border-white/10 bg-white/[0.025] p-3">
-            <div className="mb-4 flex items-center justify-between text-[10px] text-zinc-400"><span>Evolução financeira</span><span>6 meses</span></div>
-            <div className="flex h-20 items-end justify-between gap-2">
-              {[36, 53, 45, 70, 59, 88, 65, 95, 77, 100, 84, 94].map((height, index) => (
-                <div key={index} className="flex-1 rounded-t-sm bg-[#a2e8db]/[0.55]" style={{ height: `${height}%` }} />
-              ))}
-            </div>
+        </div>
+        <div className="mt-3 rounded border border-white/10 p-3">
+          <p className="mb-3 text-xs text-zinc-400">Evolução financeira · Ilustração</p>
+          <div className="flex h-20 items-end gap-2">
+            {[38, 56, 47, 72, 62, 87, 67, 95, 76, 100, 85, 93].map((h, i) => <span key={i} className="flex-1 rounded-t-sm bg-[#a2e8db]/60" style={{ height: `${h}%` }} />)}
           </div>
         </div>
       </div>
-      <p className="absolute bottom-2 right-4 text-[9px] text-zinc-500">Dados fictícios para composição visual</p>
+      <p className="mt-3 text-right text-[10px] text-zinc-500">Dados fictícios apenas para apresentação visual</p>
     </div>
   );
 }
 
 export default function Projects({ view }: { view: View }) {
-  const [activeId, setActiveId] = useState<number | null>(null);
-  const visibleProjects = projects
-    .filter((project) => view === "complete" || project.category === "both" || project.category === view)
-    .sort((a, b) => Number(b.featured) - Number(a.featured));
-  const selectedId = visibleProjects.some((project) => project.id === activeId)
-    ? activeId
-    : visibleProjects[0]?.id;
+  const [expanded, setExpanded] = useState<number>(1);
+  const visible = projects.filter(p => view === "complete" || p.category === "both" || p.category === view);
 
   return (
     <section id="projetos" className="scroll-mt-24 border-t border-white/10 py-20 sm:py-28">
-      <div className="mb-9 flex flex-col justify-between gap-5 md:flex-row md:items-end">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#a2e8db]">01 / Trabalhos</p>
-          <h2 className="mt-4 text-4xl font-semibold tracking-[-0.055em] text-zinc-100 sm:text-5xl">Projetos <span className="text-zinc-500">selecionados.</span></h2>
-        </div>
-        <p className="max-w-sm text-sm leading-7 text-zinc-400">Projetos reais e espaços para trabalhos futuros. Clique em um cartão para explorar.</p>
-      </div>
-
-      <div className="flex flex-col gap-3 lg:h-[580px] lg:flex-row">
-        {visibleProjects.map((project, index) => {
-          const active = project.id === selectedId;
+      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#a2e8db]">01 / Trabalhos</p>
+      <h2 className="mt-4 text-4xl font-semibold tracking-[-0.055em] text-zinc-100 sm:text-5xl">Projetos <span className="text-zinc-500">selecionados.</span></h2>
+      <p className="mt-5 max-w-2xl text-sm leading-7 text-zinc-400">Projetos independentes, acadêmicos e de aprendizagem. Selecione um cartão para conhecer os detalhes. Links disponíveis apenas quando informados no currículo.</p>
+      <div className="mt-9 grid items-start gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {visible.map(project => {
+          const active = expanded === project.id;
           return (
-            <article
-              key={project.id}
-              className={`flex min-w-0 flex-col overflow-hidden rounded-xl border bg-[#141819] transition-[flex,border-color] duration-500 motion-reduce:transition-none ${active ? "border-[#a2e8db]/50 lg:flex-[4]" : "border-white/15 lg:flex-[1]"}`}
-            >
-              <button
-                type="button"
-                onClick={() => setActiveId(project.id)}
-                aria-expanded={active}
-                aria-controls={`project-detail-${project.id}`}
-                className="flex min-h-16 w-full items-center justify-between gap-3 px-5 py-4 text-left focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#a2e8db]"
-              >
-                <span className="font-mono text-xs text-[#a2e8db]">{String(index + 1).padStart(2, "0")}</span>
-                <span className={`min-w-0 flex-1 truncate text-sm font-medium text-zinc-200 ${active ? "lg:opacity-0" : ""}`}>{project.title}</span>
-                <span className="text-lg text-zinc-400" aria-hidden="true">{active ? "−" : "+"}</span>
+            <article key={project.id} className={`min-w-0 overflow-hidden rounded-xl border bg-[#141819] transition-colors ${active ? "border-[#a2e8db]/50" : "border-white/15"} ${project.featured ? "md:col-span-2" : ""}`}>
+              <button type="button" onClick={() => setExpanded(active ? 0 : project.id)} aria-expanded={active} aria-controls={`project-${project.id}`} className="flex min-h-20 w-full items-center gap-4 px-5 py-4 text-left focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#a2e8db]">
+                <span className="font-mono text-xs text-[#a2e8db]">{String(project.id).padStart(2,"0")}</span>
+                <span className="min-w-0 flex-1"><span className="block text-base font-semibold text-zinc-100">{project.title}</span><span className="mt-1 block text-xs text-zinc-500">{project.label}</span></span>
+                <span className="text-xl text-zinc-400" aria-hidden="true">{active ? "−" : "+"}</span>
               </button>
-              {active ? (
-                <div id={`project-detail-${project.id}`} className="flex min-h-0 flex-1 flex-col">
-                  <div className="min-h-0 flex-1"><ProjectVisual project={project} /></div>
-                  <div className="p-5 sm:p-7">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#a2e8db]">{project.kind === "placeholder" ? "Espaço de demonstração" : "Projeto real · Em evolução"}</p>
-                    <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">{project.title}</h3>
-                    <p className="mt-3 max-w-2xl text-sm leading-6 text-zinc-400">{project.description}</p>
-                    {project.highlights.length > 0 && <div className="mt-4 flex flex-wrap gap-2">{project.highlights.map((highlight) => <span key={highlight} className="rounded-full border border-[#a2e8db]/25 px-3 py-1 text-[11px] text-[#a2e8db]">{highlight}</span>)}</div>}
-                    {project.technologies.length > 0 && <div className="mt-4 flex flex-wrap gap-2">{project.technologies.map((tech) => <span key={tech} className="rounded border border-white/15 px-2 py-1 text-[11px] text-zinc-300">{tech}</span>)}</div>}
-                    {(project.github || project.demo) && <div className="mt-5 flex flex-wrap gap-3">
-                      {project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-md bg-zinc-100 px-4 py-2.5 text-xs font-semibold text-zinc-950 transition hover:bg-white">Abrir demonstração ↗</a>}
-                      {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-md border border-white/25 px-4 py-2.5 text-xs font-semibold text-white transition hover:bg-white/10">Ver código ↗</a>}
-                    </div>}
-                  </div>
+              {active && <div id={`project-${project.id}`}>
+                <Preview project={project} />
+                <div className="p-5 sm:p-6">
+                  <p className="text-sm leading-7 text-zinc-300">{project.description}</p>
+                  <div className="mt-4 flex flex-wrap gap-2">{project.highlights.map(item => <span key={item} className="rounded-full border border-[#a2e8db]/25 px-3 py-1 text-xs text-[#a2e8db]">{item}</span>)}</div>
+                  <div className="mt-4 flex flex-wrap gap-2">{project.technologies.map(item => <span key={item} className="rounded border border-white/15 px-2 py-1 text-xs text-zinc-300">{item}</span>)}</div>
+                  {(project.demo || project.github) && <div className="mt-6 flex flex-wrap gap-3">
+                    {project.demo && <a href={project.demo} target="_blank" rel="noopener noreferrer" className="rounded-md bg-zinc-100 px-4 py-2.5 text-xs font-semibold text-zinc-950 hover:bg-white">Abrir demonstração ↗</a>}
+                    {project.github && <a href={project.github} target="_blank" rel="noopener noreferrer" className="rounded-md border border-white/25 px-4 py-2.5 text-xs font-semibold text-zinc-100 hover:bg-white/10">Ver código ↗</a>}
+                  </div>}
                 </div>
-              ) : (
-                <div id={`project-detail-${project.id}`} className="relative hidden min-h-0 flex-1 items-center justify-center lg:flex">
-                  <span className="absolute inset-y-0 left-1/2 flex -translate-x-1/2 items-center whitespace-nowrap text-sm font-medium tracking-wide text-zinc-500 [writing-mode:vertical-rl]">{project.title}</span>
-                </div>
-              )}
+              </div>}
             </article>
           );
         })}
       </div>
-      <p className="mt-5 text-xs leading-5 text-zinc-500">A prévia da Finance Platform é ilustrativa e utiliza valores fictícios. A demonstração pública é acessível pelo botão acima.</p>
     </section>
   );
 }
