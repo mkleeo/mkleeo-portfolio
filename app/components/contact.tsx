@@ -31,18 +31,18 @@ export default function Contact() {
   return (
     <>
       <section id="contato" className="scroll-mt-10 py-20">
-        <div className="relative overflow-hidden rounded-3xl border border-neon-pink/40 bg-surface px-6 py-14 text-center shadow-[0_0_50px_rgba(255,0,127,0.08)] sm:px-12 sm:py-20">
-          <div className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-neon-pink/10 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-24 -right-24 h-64 w-64 rounded-full bg-neon-cyan/10 blur-3xl" />
+        <div className="relative overflow-hidden rounded-3xl border border-white/15 bg-surface px-6 py-14 text-center  sm:px-12 sm:py-20">
+          <div className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-white/5 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-24 -right-24 h-64 w-64 rounded-full bg-white/5 blur-3xl" />
 
           <div className="relative">
-            <span className="inline-flex rounded-full border border-neon-green/30 bg-neon-green/5 px-4 py-2 text-xs font-semibold text-neon-green">
+            <span className="inline-flex rounded-full border border-white/20 bg-white/5 px-4 py-2 text-xs font-semibold text-[#a2e8db]">
               DISPONÍVEL PARA OPORTUNIDADES
             </span>
 
-            <h2 className="mx-auto mt-7 max-w-3xl text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl">
+            <h2 className="mx-auto mt-7 max-w-3xl text-3xl font-semibold leading-tight tracking-tight sm:text-5xl">
               Vamos construir algo{" "}
-              <span className="bg-gradient-to-r from-neon-pink to-neon-cyan bg-clip-text text-transparent">
+              <span className="text-zinc-500">
                 incrível juntos?
               </span>
             </h2>
@@ -56,7 +56,7 @@ export default function Contact() {
             <div className="mt-9 flex flex-wrap justify-center gap-3">
               <a
                 href={`mailto:${email}`}
-                className="inline-flex min-h-12 items-center justify-center rounded-lg bg-neon-pink px-6 py-3 text-sm font-semibold text-white transition hover:bg-pink-600"
+                className="inline-flex min-h-12 items-center justify-center rounded-lg bg-zinc-100 px-6 py-3 text-sm font-semibold text-zinc-950 transition hover:bg-white"
               >
                 Enviar e-mail
               </a>
@@ -64,7 +64,7 @@ export default function Contact() {
               <button
                 type="button"
                 onClick={copyEmail}
-                className="inline-flex min-h-12 items-center justify-center rounded-lg border border-border bg-background px-6 py-3 text-sm font-semibold transition hover:border-neon-cyan hover:text-neon-cyan"
+                className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/15 bg-background px-6 py-3 text-sm font-semibold transition hover:border-neon-cyan hover:text-[#a2e8db]"
               >
                 {copied ? "E-mail copiado!" : "Copiar e-mail"}
               </button>
@@ -77,14 +77,14 @@ export default function Contact() {
         </div>
       </section>
 
-      <footer className="border-t border-border py-8">
+      <footer className="border-t border-white/15 py-8">
         <div className="flex flex-col items-center justify-between gap-5 text-center sm:flex-row sm:text-left">
           <div>
             <a
               href="#inicio"
-              className="text-lg font-extrabold tracking-tight"
+              className="text-lg font-semibold tracking-tight"
             >
-              MK<span className="text-neon-pink">.</span>LEEO
+              MK<span className="text-[#a2e8db]">.</span>LEEO
             </a>
 
             <p className="mt-2 text-xs text-gray-500">
@@ -99,7 +99,7 @@ export default function Contact() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-gray-400 transition hover:text-neon-cyan"
+                className="text-sm text-gray-400 transition hover:text-[#a2e8db]"
               >
                 {link.label}
               </a>
@@ -107,7 +107,7 @@ export default function Contact() {
 
             <a
               href="#inicio"
-              className="text-sm text-gray-400 transition hover:text-neon-pink"
+              className="text-sm text-gray-400 transition hover:text-[#a2e8db]"
             >
               Voltar ao topo ↑
             </a>

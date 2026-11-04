@@ -1,14 +1,13 @@
-
 @import "tailwindcss";
 
 :root {
-  --background: #08090d;
-  --foreground: #f5f5f7;
-  --surface: #101118;
-  --border: #252632;
-  --pink: #ff007f;
-  --cyan: #00f0ff;
-  --green: #00ff66;
+  --background: #0c0d0f;
+  --foreground: #f4f4f5;
+  --surface: #151719;
+  --border: #292c30;
+  --pink: #a2e8db;
+  --cyan: #a2e8db;
+  --green: #a2e8db;
 }
 
 @theme inline {
@@ -21,118 +20,18 @@
   --color-neon-green: var(--green);
 }
 
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: auto;
-}
-
+* { box-sizing: border-box; }
+html { scroll-behavior: auto; }
 body {
   min-height: 100vh;
   margin: 0;
+  background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  background-color: var(--background);
-  background-image:
-    radial-gradient(
-      ellipse at 20% 15%,
-      rgba(255, 0, 127, 0.12),
-      transparent 45%
-    ),
-    radial-gradient(
-      ellipse at 85% 70%,
-      rgba(0, 240, 255, 0.09),
-      transparent 45%
-    ),
-    linear-gradient(
-      rgba(0, 240, 255, 0.08) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.04) 1px,
-      transparent 1px
-    );
-
-  background-size:
-    auto,
-    auto,
-    40px 40px,
-    40px 40px;
 }
-
-::selection {
-  background: var(--pink);
-  color: white;
-}
-
-
-.reveal {
-  opacity: 0;
-  transform: translateY(35px);
-  transition:
-    opacity 700ms ease,
-    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.reveal-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
+::selection { background: #a2e8db; color: #0c0d0f; }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 650ms ease, transform 650ms cubic-bezier(.22,1,.36,1); }
+.reveal-visible { opacity: 1; transform: translateY(0); }
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}
-
-.neon-button {
-  transition:
-    transform 250ms ease,
-    box-shadow 250ms ease,
-    background-color 250ms ease;
-}
-
-.neon-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 28px rgba(255, 0, 127, 0.35);
-}
-
-.neon-button:active {
-  transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .neon-button {
-    transition: none;
-  }
-
-  .neon-button:hover {
-    transform: none;
-  }
-}
-
-
-.hero-glow {
-  animation: heroGlow 4s ease-in-out infinite alternate;
-}
-
-@keyframes heroGlow {
-  from {
-    filter: drop-shadow(0 0 0 transparent);
-  }
-
-  to {
-    filter: drop-shadow(0 0 12px rgba(255, 0, 127, 0.4));
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-glow {
-    animation: none;
-  }
+  .reveal { opacity: 1; transform: none; transition: none; }
 }

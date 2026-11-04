@@ -26,7 +26,7 @@ export default function Terminal() {
   const [history, setHistory] = useState<TerminalLine[]>([
     {
       type: "output",
-      text: "MK.LEEO Cyber Terminal v1.0",
+      text: "MK.LEEO Terminal v1.0",
     },
     {
       type: "output",
@@ -61,14 +61,14 @@ export default function Terminal() {
   }
 
   return (
-    <section id="terminal" className="border-t border-border py-20">
+    <section id="terminal" className="border-t border-white/10 py-20">
       <div className="mb-8">
-        <span className="text-xs font-bold tracking-widest text-neon-green">
-          MODO DESENVOLVEDOR
+        <span className="text-xs font-bold tracking-widest text-[#a2e8db]">
+          EXPLORAR / TERMINAL
         </span>
 
-        <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">
-          Terminal <span className="text-neon-cyan">Cyber OS</span>
+        <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">
+          Terminal <span className="text-zinc-500">interativo.</span>
         </h2>
 
         <p className="mt-4 text-sm leading-7 text-gray-400">
@@ -76,8 +76,8 @@ export default function Terminal() {
         </p>
       </div>
 
-      <div className="overflow-hidden rounded-xl border border-neon-cyan/30 bg-[#080b12] shadow-[0_0_35px_rgba(0,240,255,0.06)]">
-        <div className="flex items-center gap-2 border-b border-border bg-surface px-5 py-4">
+      <div className="overflow-hidden rounded-xl border border-white/15 bg-[#080b12] ">
+        <div className="flex items-center gap-2 border-b border-white/10 bg-[#151719] px-5 py-4">
           <span className="h-3 w-3 rounded-full bg-red-500" />
           <span className="h-3 w-3 rounded-full bg-yellow-400" />
           <span className="h-3 w-3 rounded-full bg-green-500" />
@@ -97,7 +97,7 @@ export default function Terminal() {
               key={index}
               className={`mb-2 break-words whitespace-pre-wrap ${
                 line.type === "command"
-                  ? "text-neon-cyan"
+                  ? "text-[#a2e8db]"
                   : "text-gray-300"
               }`}
             >
@@ -109,9 +109,9 @@ export default function Terminal() {
 
         <form
           onSubmit={executeCommand}
-          className="flex items-center gap-3 border-t border-border px-5 py-4"
+          className="flex items-center gap-3 border-t border-white/10 px-5 py-4"
         >
-          <label htmlFor="terminal-command" className="font-mono text-neon-green">
+          <label htmlFor="terminal-command" className="font-mono text-[#a2e8db]">
             $
           </label>
 
@@ -128,7 +128,7 @@ export default function Terminal() {
 
           <button
             type="submit"
-            className="rounded-lg border border-neon-cyan/40 px-4 py-2 text-xs font-semibold text-neon-cyan transition hover:bg-neon-cyan/10"
+            className="rounded-lg border border-white/25 px-4 py-2 text-xs font-semibold text-[#a2e8db] transition hover:bg-white/10"
           >
             Executar
           </button>

@@ -16,26 +16,26 @@ const skills = [
 
 export default function About() {
   return (
-    <section id="sobre" className="scroll-mt-10 border-t border-border py-20">
+    <section id="sobre" className="scroll-mt-10 border-t border-white/10 py-20">
       <div className="grid gap-12 lg:grid-cols-2">
         <div>
-          <span className="text-xs font-bold tracking-widest text-neon-cyan">
+          <span className="text-xs font-bold tracking-widest text-[#a2e8db]">
             QUEM SOU EU
           </span>
 
-          <h2 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
             Mais que código,{" "}
-            <span className="bg-gradient-to-r from-neon-pink to-neon-cyan bg-clip-text text-transparent">
+            <span className="text-zinc-500">
               soluções digitais.
             </span>
           </h2>
 
-          <p className="mt-6 text-base leading-8 text-gray-400">
+          <p className="mt-6 text-base leading-8 text-zinc-400">
             Sou Marcos Leonardo, desenvolvedor Front-end formado
             em Análise e Desenvolvimento de Sistemas.
           </p>
 
-          <p className="mt-4 text-base leading-8 text-gray-400">
+          <p className="mt-4 text-base leading-8 text-zinc-400">
             Tenho experiência prática com React, JavaScript,
             HTML e CSS, desenvolvendo interfaces modernas,
             responsivas e organizadas. Atualmente aprofundo
@@ -43,8 +43,8 @@ export default function About() {
             aplicando novas tecnologias em projetos reais.
           </p>
 
-          <div className="mt-8 rounded-xl border border-border bg-surface/90 p-6">
-            <span className="text-xs font-bold text-neon-pink">
+          <div className="mt-8 rounded-xl border border-white/10 bg-[#151719] p-6">
+            <span className="text-xs font-bold text-[#a2e8db]">
               FORMAÇÃO ACADÊMICA
             </span>
 
@@ -52,7 +52,7 @@ export default function About() {
               Análise e Desenvolvimento de Sistemas
             </h3>
 
-            <p className="mt-2 text-sm text-gray-400">
+            <p className="mt-2 text-sm text-zinc-400">
               Centro Universitário Estácio
             </p>
 
@@ -63,7 +63,7 @@ export default function About() {
         </div>
 
         <div>
-          <span className="text-xs font-bold tracking-widest text-neon-pink">
+          <span className="text-xs font-bold tracking-widest text-[#a2e8db]">
             STACK & COMPETÊNCIAS
           </span>
 
@@ -75,7 +75,7 @@ export default function About() {
             {skills.map((group) => (
               <div
                 key={group.title}
-                className="rounded-xl border border-border bg-surface/90 p-6 transition-colors hover:border-neon-cyan/40"
+                className="rounded-xl border border-white/10 bg-[#151719] p-6 transition-colors hover:border-neon-cyan/40"
               >
                 <h3 className="font-semibold text-white">
                   {group.title}
@@ -85,7 +85,7 @@ export default function About() {
                   {group.items.map((skill) => (
                     <span
                       key={skill}
-                      className="rounded-md border border-border bg-background/70 px-3 py-2 text-xs text-gray-300"
+                      className="rounded-md border border-white/10 bg-background/70 px-3 py-2 text-xs text-gray-300"
                     >
                       {skill}
                     </span>
